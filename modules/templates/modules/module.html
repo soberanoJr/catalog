@@ -11,17 +11,18 @@
 
 <ul>
     <li>Name: {{ module.name }}</li>
+</ul>
 
 <h2>Lessons</h2>
 
 <ul>
     {% for lesson in lessons %}
-        <li>{{ lessons }}</li>
+        <li>{{ lesson }}</li>
     {% empty %}
         <li>No lessons on this module yet.</li>
     {% endfor %}
 </ul>
-
+<br>
 <a href="{% url 'index' %}">Back to Modules List</a>
 </body>
 </html>

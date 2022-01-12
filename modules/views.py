@@ -1,9 +1,7 @@
-from django import forms
-from django.http import HttpResponseBadRequest, HttpResponseRedirect, Http404
+from django.http import Http404
 from django.shortcuts import render
-from django.urls import reverse
 
-from .models import Module, Lesson
+from .models import Module
 
 # Create your views here.
 def index(request):
@@ -19,6 +17,5 @@ def module(request, module_id):
         raise Http404("Module not found.")
     return render(request, "modules/module.html", {
         "module": module,
-        "lessons": module.lessons.all(),
-        "non_lessons": Lesson.objects.exclude(modules=module).all()
+        "lessons": module.lessons.all()
     })
