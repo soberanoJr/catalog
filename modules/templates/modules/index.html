@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modules</title>
-  </head>
-  <body>
+{% extends "modules/layout.html" %}
+{% block body %}
+<div class="jumbotron bg-dark p-2">
+  <h3 class="display-3 text-center text-white">catalog</h3>
+  <div class="d-flex flex-wrap justify-content-center">
     {% for module in modules %}
-    <li>
-      <a href="{% url 'module' module.id %}">
-        Module #{{ module.id }}: {{ module.name }}
-      </a>
-    </li>
-    {% endfor %}
-  </body>
-</html>
+    <a href="{% url 'module' module.id %}"></a>
+    <div class="card bg-dark border-0">
+      <card class="btn btn-primary m-1" data-section="{{ module.id }}">
+        <kbd>Module #{{ module.id }}</kbd>
+        <div class="card-body">
+          
+          {{ module.name }}
+        </div>
+        <div class="card-footer text-end bg-muted">
+          {{ module.lessons.all | length }} lesson(s)
+        </div>
+      </card>
+    </div>
+    {% endfor %}  
+  </div>
+</div>
+<div id="content"></div>
+{% endblock %}

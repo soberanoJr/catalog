@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lessons</title>
-</head>
-<body>
-    <h2>Module #{{ module.id }}: {{ module.name }}</h2>
-
-<h2>Content:</h2>
-
-<ul>
+<div class="d-flex flex-wrap justify-content-center align-self-start">
     {% for lesson in lessons %}
-        <li>{{ lesson }}</li>
+    <div class="col-sm-2 card shadow-lg border-2 border-primary p-2 m-2">
+      <div class="card-body">
+        <a href="{{ lesson.link }}">
+            <h6 class="card-title">{{ lesson.name }}</h6>
+        </a>
+        </div>
+      <div class="card-footer text-end bg-muted">{{ lesson.date }}</div>
+    </div>
     {% empty %}
-        <li>No lessons on this module yet.</li>
-    {% endfor %}
-</ul>
-<br>
-<a href="{% url 'index' %}">Back to Modules List</a>
-</body>
-</html>
+    <p>
+      <kbd>No lessons on this module yet.</kbd>
+    </p>
+      {% endfor %}
+  </div>
