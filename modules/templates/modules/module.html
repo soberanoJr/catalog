@@ -7,13 +7,9 @@
     <title>Lessons</title>
 </head>
 <body>
-    <h1>Module {{ module.id }}</h1>
+    <h2>Module #{{ module.id }}: {{ module.name }}</h2>
 
-<ul>
-    <li>Name: {{ module.name }}</li>
-</ul>
-
-<h2>Lessons</h2>
+<h2>Content:</h2>
 
 <ul>
     {% for lesson in lessons %}
